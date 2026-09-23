@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Библиотечный социокультурный проект «Россия от края до края» для учащихся 7–11 классов Луганской Народной Республики.">
+  <title>Россия от края до края — библиотечный проект ЛРМБ</title>
+  <style>
+    :root {
+      --paper: #f8f2e7;
+      --surface: #fffdf8;
+      --ink: #26394a;
+      --muted: #6d655b;
+      --red: #a32635;
+      --blue: #315b84;
+      --gold: #b38b52;
+      --green: #4c705b;
+      --line: #d8c8ae;
+      --shadow: 0 18px 55px rgb(38 57 74 / 12%);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 10%, rgb(179 139 82 / 12%), transparent 30rem),
+        linear-gradient(135deg, #ede4d5, var(--paper) 45%, #e9ddca);
+      font-family: Arial, "DejaVu Sans", sans-serif;
+      line-height: 1.58;
+    }
+
+    a { color: inherit; }
+
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 32px auto;
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 720px;
+      padding: 48px clamp(24px, 6vw, 80px) 64px;
+      color: #fff;
+      background:
+        linear-gradient(120deg, rgb(20 41 58 / 96%), rgb(49 91 132 / 90%)),
+        linear-gradient(45deg, var(--ink), var(--blue));
+      isolation: isolate;
+    }
+
+    .hero::before,
+    .hero::after {
+      position: absolute;
+      content: "";
+      z-index: -1;
+      border: 1px solid rgb(255 255 255 / 15%);
+      border-radius: 50%;
+    }
+
+    .hero::before { width: 520px; height: 520px; right: -170px; top: -210px; }
+    .hero::after { width: 340px; height: 340px; right: 40px; top: -150px; }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgb(255 255 255 / 25%);
+    }
+
+    .brand img {
+      width: 104px;
+      height: auto;
+      padding: 8px;
+      background: rgb(255 255 255 / 93%);
+      border-radius: 10px;
+    }
+
+    .brand p { margin: 0; font-size: 0.92rem; letter-spacing: 0.08em; text-transform: uppercase; }
+    .brand strong { display: block; margin-top: 5px; font-size: 1.05rem; letter-spacing: 0.02em; }
+
+    .eyebrow {
+      margin: 72px 0 14px;
+      color: #e6c98d;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.19em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 { margin-top: 0; font-family: Georgia, "Times New Roman", serif; line-height: 1.12; }
+
+    h1 {
+      max-width: 900px;
+      margin-bottom: 26px;
+      font-size: clamp(3rem, 8vw, 6.7rem);
+      font-weight: 700;
+      letter-spacing: -0.045em;
+    }
+
+    h1 span { color: #efcf91; }
+
+    .lead {
+      max-width: 780px;
+      margin: 0;
+      color: rgb(255 255 255 / 84%);
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 38px;
+    }
+
+    .hero-meta span {
+      padding: 10px 15px;
+      border: 1px solid rgb(255 255 255 / 22%);
+      border-radius: 999px;
+      background: rgb(255 255 255 / 8%);
+      font-size: 0.92rem;
+    }
+
+    .content { padding: 64px clamp(24px, 6vw, 80px) 80px; }
+
+    .section { margin-top: 72px; }
+    .section:first-child { margin-top: 0; }
+
+    .section-kicker {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--red);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    h2 { margin-bottom: 24px; font-size: clamp(2rem, 4vw, 3.25rem); }
+    h3 { margin-bottom: 12px; font-size: 1.55rem; }
+
+    .intro-grid,
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .statement {
+      padding: 32px;
+      color: #fff;
+      background: var(--red);
+      border-radius: 4px 32px 4px 4px;
+    }
+
+    .statement h2 { font-size: 2.25rem; }
+    .statement p { margin-bottom: 0; color: rgb(255 255 255 / 84%); }
+
+    .legal {
+      padding: 30px;
+      border: 1px solid var(--line);
+      background: #fbf7ef;
+    }
+
+    .legal p:last-child { margin-bottom: 0; }
+
+    .task-list,
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 32px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .task-list li,
+    .principles li {
+      position: relative;
+      padding: 14px 0 14px 28px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .task-list li::before,
+    .principles li::before {
+      position: absolute;
+      left: 0;
+      color: var(--red);
+      content: "◆";
+      font-size: 0.7rem;
+    }
+
+    .program {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .event {
+      position: relative;
+      padding: 31px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .event::after {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      right: -62px;
+      bottom: -62px;
+      content: "";
+      border-radius: 50%;
+      background: var(--event-color);
+      opacity: 0.12;
+    }
+
+    .event:nth-child(1) { --event-color: var(--red); }
+    .event:nth-child(2) { --event-color: var(--blue); }
+    .event:nth-child(3) { --event-color: var(--gold); }
+    .event:nth-child(4) { --event-color: var(--green); }
+
+    .quarter {
+      display: inline-grid;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 22px;
+      place-items: center;
+      color: #fff;
+      border-radius: 50%;
+      background: var(--event-color);
+      font-weight: 800;
+    }
+
+    .event-label { color: var(--muted); font-size: 0.79rem; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase; }
+    .event p { margin: 8px 0; }
+    .event strong { color: var(--event-color); }
+
+    table { width: 100%; border-collapse: collapse; background: #fff; }
+    th, td { padding: 15px 18px; border: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { color: #fff; background: var(--ink); }
+    td:nth-child(2) { width: 100px; white-space: nowrap; font-weight: 700; }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .metric { padding: 24px; border-top: 4px solid var(--gold); background: #f5eee2; }
+    .metric b { display: block; margin-bottom: 5px; color: var(--red); font-family: Georgia, serif; font-size: 2rem; }
+
+    .poster-wrap {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(260px, 0.35fr);
+      gap: 32px;
+      align-items: center;
+      padding: 32px;
+      background: var(--ink);
+    }
+
+    .poster-wrap img { display: block; width: 100%; max-height: 760px; object-fit: contain; background: #fff; }
+    .poster-copy { color: #fff; }
+    .poster-copy p { color: rgb(255 255 255 / 72%); }
+
+    .button {
+      display: inline-block;
+      margin: 8px 8px 0 0;
+      padding: 12px 18px;
+      color: #fff;
+      border: 1px solid rgb(255 255 255 / 30%);
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .button.primary { color: var(--ink); border-color: #efcf91; background: #efcf91; }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 28px;
+      padding: 34px clamp(24px, 6vw, 80px);
+      color: rgb(255 255 255 / 75%);
+      background: #172a39;
+      font-size: 0.86rem;
+    }
+
+    .footer strong { color: #fff; }
+
+    @media (max-width: 760px) {
+      .page { width: 100%; margin: 0; border: 0; }
+      .hero { min-height: auto; padding-top: 28px; }
+      .brand { align-items: flex-start; }
+      .brand img { width: 80px; }
+      .eyebrow { margin-top: 50px; }
+      .intro-grid, .two-col, .program, .task-list, .principles, .poster-wrap { grid-template-columns: 1fr; }
+      .metrics { grid-template-columns: 1fr 1fr; }
+      .footer { flex-direction: column; }
+    }
+
+    @media (max-width: 480px) {
+      .metrics { grid-template-columns: 1fr; }
+      .brand p { font-size: 0.75rem; }
+      .brand strong { font-size: 0.88rem; }
+      th, td { padding: 10px; font-size: 0.82rem; }
+    }
+
+    @media print {
+      @page { size: A4; margin: 14mm; }
+      body { background: #fff; font-size: 10pt; }
+      .page { width: auto; margin: 0; border: 0; box-shadow: none; }
+      .hero { min-height: 0; padding: 18mm 14mm; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .hero::before, .hero::after { display: none; }
+      .eyebrow { margin-top: 24mm; }
+      h1 { font-size: 44pt; }
+      .content { padding: 12mm 0; }
+      .section { margin-top: 14mm; break-inside: avoid; }
+      .event, .statement, .legal, .metric, table { break-inside: avoid; }
+      .poster-section { break-before: page; }
+      .poster-copy .button { display: none; }
+      .footer { padding: 8mm 0; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="brand">
+        <img src="лого.png" alt="Логотип Луганской Республиканской Молодёжной Библиотеки">
+        <p>Инициатор проекта<strong>Луганская Республиканская Молодёжная Библиотека</strong></p>
+      </div>
+      <p class="eyebrow">Библиотечный социокультурный проект</p>
+      <h1>Россия <span>от края до края</span></h1>
+      <p class="lead">Открывай страну. Узнавай свой край. Создавай будущее вместе.</p>
+      <div class="hero-meta">
+        <span>Луганская Народная Республика</span>
+        <span>Учащиеся 7–11 классов</span>
+        <span>1 событие в квартал</span>
+        <span>Пушкинская карта</span>
+      </div>
+    </header>
+
+    <div class="content">
+      <section class="section intro-grid" aria-labelledby="goal-title">
+        <div class="statement">
+          <span class="section-kicker" style="color:#efcf91">Цель проекта</span>
+          <h2 id="goal-title">Культура как пространство общей памяти и действия</h2>
+          <p>Создать средствами библиотеки пространство для позитивных социокультурных изменений, в котором подростки через литературу, историю, краеведение и творчество осознают общность культурного наследия России и личную ответственность за его сохранение.</p>
+        </div>
+        <div class="legal">
+          <span class="section-kicker">Актуальность</span>
+          <h3>Ценностная основа</h3>
+          <p>Проект помогает подросткам увидеть место Луганской Народной Республики в общем историко-культурном пространстве страны, укрепить связь поколений и получить опыт совместной творческой деятельности.</p>
+          <p>Содержание сформировано с учетом Основ государственной политики по сохранению и укреплению традиционных российских духовно-нравственных ценностей, утвержденных Указом Президента Российской Федерации от 9 ноября 2022 года № 809.</p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="tasks-title">
+        <span class="section-kicker">Что меняем</span>
+        <h2 id="tasks-title">Задачи проекта</h2>
+        <ul class="task-list">
+          <li>Расширить знания учащихся о литературе, истории, культуре и географии России.</li>
+          <li>Раскрыть культурные связи Донбасса с другими регионами страны.</li>
+          <li>Укрепить уважение к исторической памяти, семье и культурным традициям.</li>
+          <li>Развить навыки чтения, аргументированного диалога и командной работы.</li>
+          <li>Вовлечь подростков в культурную жизнь библиотеки и местного сообщества.</li>
+          <li>Создать условия для общения школьников, краеведов и деятелей культуры.</li>
+          <li>Повысить доступность культурных событий через программу «Пушкинская карта».</li>
+          <li>Превратить участников из зрителей в исследователей, авторов и ведущих.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="program-title">
+        <span class="section-kicker">Четыре встречи в год</span>
+        <h2 id="program-title">Квартальная программа</h2>
+        <div class="program">
+          <article class="event">
+            <span class="quarter">I</span>
+            <div class="event-label">I квартал · краеведческая лаборатория</div>
+            <h3>Мой край в истории России</h3>
+            <p>Культурная карта ЛНР, литература и памятные места Луганщины, судьбы земляков и семейные реликвии.</p>
+            <p><strong>Результат:</strong> интерактивная карта «Луганщина: люди, книги, места».</p>
+            <p><strong>Ценности:</strong> историческая память, преемственность поколений, патриотизм.</p>
+          </article>
+          <article class="event">
+            <span class="quarter">II</span>
+            <div class="event-label">II квартал · литературный маршрут</div>
+            <h3>Пушкин объединяет</h3>
+            <p>География жизни и творчества А. С. Пушкина, язык как культурный код, пушкинские места России.</p>
+            <p><strong>Результат:</strong> аудиооткрытки или видеозарисовки «Мой Пушкин».</p>
+            <p><strong>Ценности:</strong> высокая культура, созидание, достоинство, общая культурная идентичность.</p>
+          </article>
+          <article class="event">
+            <span class="quarter">III</span>
+            <div class="event-label">III квартал · этнокультурная экспедиция</div>
+            <h3>Россия многоликая</h3>
+            <p>Сказания, музыка, орнаменты, традиции гостеприимства и литературные голоса народов России.</p>
+            <p><strong>Результат:</strong> книжный атлас «Традиции, которые нас объединяют».</p>
+            <p><strong>Ценности:</strong> единство народов России, взаимоуважение, взаимопомощь.</p>
+          </article>
+          <article class="event">
+            <span class="quarter">IV</span>
+            <div class="event-label">IV квартал · проектная мастерская</div>
+            <h3>Создавая будущее вместе</h3>
+            <p>Образ будущего в отечественной литературе, созидательный труд, культурное волонтерство.</p>
+            <p><strong>Результат:</strong> подростковые мини-проекты и итоговая выставка.</p>
+            <p><strong>Ценности:</strong> ответственность, созидательный труд, гуманизм, милосердие.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="scenario-title">
+        <span class="section-kicker">90 минут совместной работы</span>
+        <h2 id="scenario-title">Сценарная модель встречи</h2>
+        <table>
+          <thead><tr><th>Этап</th><th>Время</th><th>Содержание</th></tr></thead>
+          <tbody>
+            <tr><td>Погружение</td><td>10 мин.</td><td>Яркий факт, предмет, фрагмент текста, аудио- или видеоматериал.</td></tr>
+            <tr><td>Содержательный блок</td><td>20 мин.</td><td>Рассказ библиотекаря или приглашенного эксперта с опорой на источники.</td></tr>
+            <tr><td>Командное исследование</td><td>25 мин.</td><td>Работа с книгами, картами, документами и цифровыми материалами.</td></tr>
+            <tr><td>Творческая мастерская</td><td>25 мин.</td><td>Создание карты, аудиооткрытки, страницы атласа или мини-проекта.</td></tr>
+            <tr><td>Рефлексия</td><td>10 мин.</td><td>Представление результатов, обратная связь и анонс следующей встречи.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-labelledby="principles-title">
+        <span class="section-kicker">Методика</span>
+        <h2 id="principles-title">Принципы проекта</h2>
+        <ul class="principles">
+          <li><strong>Историческая достоверность.</strong> Работа с проверенными библиотечными, архивными и музейными источниками.</li>
+          <li><strong>Единство в многообразии.</strong> Уважительное представление культур и традиций народов России.</li>
+          <li><strong>Диалог поколений.</strong> Семейные истории и встречи с носителями культурной памяти.</li>
+          <li><strong>Соучастие.</strong> Подростки выступают исследователями, авторами и ведущими.</li>
+          <li><strong>Возрастная уместность.</strong> Формы соответствуют интересам учащихся 7–11 классов.</li>
+          <li><strong>Добровольность и уважение.</strong> Свободное высказывание без унижения достоинства.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="results-title">
+        <span class="section-kicker">Измеримый эффект</span>
+        <h2 id="results-title">Ожидаемые результаты</h2>
+        <div class="metrics">
+          <div class="metric"><b>4</b>культурно-просветительских мероприятия в год</div>
+          <div class="metric"><b>100+</b>посещений за полный цикл проекта</div>
+          <div class="metric"><b>4</b>коллективных творческих продукта</div>
+          <div class="metric"><b>70%</b>отмечают рост интереса к культуре и истории</div>
+          <div class="metric"><b>50%</b>посещают два и более события цикла</div>
+          <div class="metric"><b>5+</b>подростковых культурных инициатив</div>
+        </div>
+      </section>
+
+      <section class="section two-col" aria-labelledby="organization-title">
+        <div>
+          <span class="section-kicker">Сотрудничество</span>
+          <h2 id="organization-title">Партнеры</h2>
+          <p>Образовательные организации ЛНР, учреждения культуры, музеи и архивы, писатели, краеведы, артисты, молодежные объединения, родители, представители старшего поколения и региональные СМИ.</p>
+        </div>
+        <div>
+          <span class="section-kicker">Организация</span>
+          <h2>Условия реализации</h2>
+          <p>Каждое мероприятие оформляется и проходит модерацию программы «Пушкинская карта» отдельно. Организатор утверждает даты, стоимость и площадку, соблюдает авторские права, требования к обработке персональных данных, возрастной уместности и безопасности участников.</p>
+        </div>
+      </section>
+
+      <section class="section poster-section" aria-labelledby="poster-title">
+        <div class="poster-wrap">
+          <img src="afisha-rossiya-ot-kraya-do-kraya.svg" alt="Афиша проекта «Россия от края до края»">
+          <div class="poster-copy">
+            <span class="section-kicker" style="color:#efcf91">Материалы проекта</span>
+            <h2 id="poster-title">Афиша</h2>
+            <p>В макете предусмотрены редактируемые поля для даты, времени, адреса, стоимости, контактов и QR-кода билетной страницы.</p>
+            <a class="button primary" href="afisha-rossiya-ot-kraya-do-kraya.svg">Открыть афишу</a>
+            <button class="button" type="button" onclick="window.print()" style="background:transparent;cursor:pointer;font:inherit">Печать проекта</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <div><strong>«Россия от края до края»</strong><br>Библиотечный социокультурный проект</div>
+      <div>Инициатор: Луганская Республиканская Молодёжная Библиотека<br>Луганская Народная Республика</div>
+    </footer>
+  </main>
+</body>
+</html>

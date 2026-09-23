@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="297mm" height="420mm" viewBox="0 0 1123 1587" role="img" aria-labelledby="title desc">
+  <title id="title">Афиша проекта «Россия от края до края»</title>
+  <desc id="desc">Афиша библиотечного проекта для учащихся 7–11 классов в Луганской Народной Республике. Четыре события в год, билеты по Пушкинской карте.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6efe1"/>
+      <stop offset="0.55" stop-color="#fffaf0"/>
+      <stop offset="1" stop-color="#e8dac2"/>
+    </linearGradient>
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8f1d2c"/>
+      <stop offset="1" stop-color="#bc3540"/>
+    </linearGradient>
+    <pattern id="paper" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M0 40H80M40 0V80" stroke="#663a24" stroke-opacity="0.025" stroke-width="1"/>
+      <circle cx="40" cy="40" r="1.5" fill="#663a24" fill-opacity="0.055"/>
+    </pattern>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#3b261d" flood-opacity="0.15"/>
+    </filter>
+    <clipPath id="mapClip">
+      <path d="M115 251l63-39 70 13 55-38 69 20 55-35 83 23 75-42 76 26 60-16 65 39 88-4 74 41 84 9 45 57-49 44-77-2-55 35-78-13-58 32-74-25-76 31-61-26-70 21-54-42-81 12-52-44-75 2-43-45z"/>
+    </clipPath>
+    <style>
+      .sans { font-family: "Arial", "DejaVu Sans", sans-serif; }
+      .serif { font-family: "Georgia", "Times New Roman", serif; }
+      .ink { fill: #25394a; }
+      .muted { fill: #665d52; }
+      .white { fill: #fffdf7; }
+    </style>
+  </defs>
+
+  <rect width="1123" height="1587" fill="url(#bg)"/>
+  <rect width="1123" height="1587" fill="url(#paper)"/>
+  <rect x="25" y="25" width="1073" height="1537" rx="6" fill="none" stroke="#25394a" stroke-width="2"/>
+  <rect x="35" y="35" width="1053" height="1517" rx="4" fill="none" stroke="#b38b52" stroke-width="1"/>
+
+  <!-- Header -->
+  <text x="70" y="76" class="sans ink" font-size="24" font-weight="700" letter-spacing="3">БИБЛИОТЕЧНЫЙ СОЦИОКУЛЬТУРНЫЙ ПРОЕКТ</text>
+  <rect x="70" y="94" width="983" height="2" fill="#b38b52"/>
+  <text x="70" y="124" class="sans muted" font-size="18">Инициатор: Луганская Республиканская Молодёжная Библиотека</text>
+  <text x="70" y="150" class="sans muted" font-size="18">для учащихся 7–11 классов • Луганская Народная Республика</text>
+
+  <!-- Decorative map silhouette -->
+  <g opacity="0.98" transform="translate(0 25)">
+    <path d="M115 251l63-39 70 13 55-38 69 20 55-35 83 23 75-42 76 26 60-16 65 39 88-4 74 41 84 9 45 57-49 44-77-2-55 35-78-13-58 32-74-25-76 31-61-26-70 21-54-42-81 12-52-44-75 2-43-45z" fill="#fdf8ed" stroke="#25394a" stroke-width="3"/>
+    <g clip-path="url(#mapClip)">
+      <path d="M55 175h1030v75H55z" fill="#fffdf7"/>
+      <path d="M55 250h1030v75H55z" fill="#315b84" opacity="0.9"/>
+      <path d="M55 325h1030v90H55z" fill="#a52a38" opacity="0.9"/>
+    </g>
+    <circle cx="790" cy="361" r="11" fill="#f3c75f" stroke="#25394a" stroke-width="3"/>
+    <path d="M790 372v35" stroke="#25394a" stroke-width="3"/>
+    <text x="810" y="412" class="sans ink" font-size="18" font-weight="700">ЛУГАНСК</text>
+  </g>
+
+  <!-- Main title -->
+  <text x="561.5" y="485" text-anchor="middle" class="serif ink" font-size="54" font-weight="700" letter-spacing="2">РОССИЯ</text>
+  <text x="561.5" y="552" text-anchor="middle" class="serif" fill="#a32635" font-size="67" font-weight="700">ОТ КРАЯ ДО КРАЯ</text>
+  <path d="M275 579h573" stroke="#b38b52" stroke-width="3"/>
+  <text x="561.5" y="617" text-anchor="middle" class="sans muted" font-size="23" font-weight="600">ОТКРЫВАЙ СТРАНУ • УЗНАВАЙ СВОЙ КРАЙ • СОЗДАВАЙ БУДУЩЕЕ</text>
+
+  <!-- Program -->
+  <g filter="url(#shadow)">
+    <rect x="70" y="670" width="475" height="190" rx="14" fill="#fffdf7" stroke="#b38b52" stroke-width="2"/>
+    <rect x="578" y="670" width="475" height="190" rx="14" fill="#fffdf7" stroke="#b38b52" stroke-width="2"/>
+    <rect x="70" y="885" width="475" height="190" rx="14" fill="#fffdf7" stroke="#b38b52" stroke-width="2"/>
+    <rect x="578" y="885" width="475" height="190" rx="14" fill="#fffdf7" stroke="#b38b52" stroke-width="2"/>
+  </g>
+
+  <g class="sans">
+    <circle cx="113" cy="715" r="25" fill="#a32635"/>
+    <text x="113" y="723" text-anchor="middle" class="white" font-size="22" font-weight="700">I</text>
+    <text x="153" y="706" class="muted" font-size="17" font-weight="700" letter-spacing="2">I КВАРТАЛ</text>
+    <text x="108" y="759" class="ink" font-size="29" font-weight="700">МОЙ КРАЙ</text>
+    <text x="108" y="795" class="ink" font-size="29" font-weight="700">В ИСТОРИИ РОССИИ</text>
+    <text x="108" y="829" class="muted" font-size="18">краеведческая лаборатория</text>
+
+    <circle cx="621" cy="715" r="25" fill="#315b84"/>
+    <text x="621" y="723" text-anchor="middle" class="white" font-size="22" font-weight="700">II</text>
+    <text x="661" y="706" class="muted" font-size="17" font-weight="700" letter-spacing="2">II КВАРТАЛ</text>
+    <text x="616" y="769" class="ink" font-size="31" font-weight="700">ПУШКИН</text>
+    <text x="616" y="807" class="ink" font-size="31" font-weight="700">ОБЪЕДИНЯЕТ</text>
+    <text x="616" y="839" class="muted" font-size="18">литературный маршрут и медиаквест</text>
+
+    <circle cx="113" cy="930" r="25" fill="#b38b52"/>
+    <text x="113" y="938" text-anchor="middle" class="white" font-size="20" font-weight="700">III</text>
+    <text x="153" y="921" class="muted" font-size="17" font-weight="700" letter-spacing="2">III КВАРТАЛ</text>
+    <text x="108" y="984" class="ink" font-size="31" font-weight="700">РОССИЯ</text>
+    <text x="108" y="1022" class="ink" font-size="31" font-weight="700">МНОГОЛИКАЯ</text>
+    <text x="108" y="1054" class="muted" font-size="18">этнокультурная экспедиция</text>
+
+    <circle cx="621" cy="930" r="25" fill="#4c705b"/>
+    <text x="621" y="938" text-anchor="middle" class="white" font-size="20" font-weight="700">IV</text>
+    <text x="661" y="921" class="muted" font-size="17" font-weight="700" letter-spacing="2">IV КВАРТАЛ</text>
+    <text x="616" y="974" class="ink" font-size="28" font-weight="700">СОЗДАВАЯ БУДУЩЕЕ</text>
+    <text x="616" y="1010" class="ink" font-size="28" font-weight="700">ВМЕСТЕ</text>
+    <text x="616" y="1054" class="muted" font-size="18">мастерская подростковых инициатив</text>
+  </g>
+
+  <!-- Values line -->
+  <rect x="70" y="1110" width="983" height="92" rx="12" fill="#25394a"/>
+  <text x="561.5" y="1148" text-anchor="middle" class="sans white" font-size="21" font-weight="700" letter-spacing="1">4 ВСТРЕЧИ В ГОД • КНИГИ • ИСТОРИЯ • ДИАЛОГ • ТВОРЧЕСТВО</text>
+  <text x="561.5" y="1180" text-anchor="middle" class="sans" fill="#e7c98e" font-size="18">историческая память • единство народов России • связь поколений</text>
+
+  <!-- Call to action -->
+  <g>
+    <rect x="70" y="1240" width="682" height="206" rx="14" fill="url(#red)"/>
+    <text x="108" y="1292" class="sans white" font-size="24" font-weight="700" letter-spacing="1">БИЛЕТЫ ПО ПУШКИНСКОЙ КАРТЕ</text>
+    <text x="108" y="1340" class="sans white" font-size="22">[дата и время ближайшей встречи]</text>
+    <text x="108" y="1378" class="sans white" font-size="22">[название библиотеки, адрес]</text>
+    <text x="108" y="1419" class="sans" fill="#f2d9b1" font-size="18">Цена: [___] ₽  •  Регистрация: [ссылка / телефон]</text>
+
+    <rect x="789" y="1240" width="264" height="206" rx="14" fill="#fffdf7" stroke="#25394a" stroke-width="2"/>
+    <rect x="824" y="1265" width="134" height="134" fill="none" stroke="#25394a" stroke-width="3" stroke-dasharray="10 7"/>
+    <text x="891" y="1327" text-anchor="middle" class="sans muted" font-size="18" font-weight="700">МЕСТО</text>
+    <text x="891" y="1351" text-anchor="middle" class="sans muted" font-size="18" font-weight="700">ДЛЯ QR</text>
+    <text x="921" y="1425" text-anchor="middle" class="sans ink" font-size="17" font-weight="700">КУПИТЬ БИЛЕТ</text>
+  </g>
+
+  <!-- Footer -->
+  <image href="лого.png" x="70" y="1451" width="83" height="60" preserveAspectRatio="xMidYMid meet"/>
+  <text x="169" y="1484" class="sans ink" font-size="16" font-weight="700">ЛУГАНСКАЯ РЕСПУБЛИКАНСКАЯ МОЛОДЁЖНАЯ БИБЛИОТЕКА</text>
+  <text x="1053" y="1494" text-anchor="end" class="sans muted" font-size="17">12+</text>
+  <text x="70" y="1527" class="sans muted" font-size="14">Содержание проекта учитывает положения Указа Президента РФ от 09.11.2022 № 809.</text>
+</svg>

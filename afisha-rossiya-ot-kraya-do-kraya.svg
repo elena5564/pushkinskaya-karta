@@ -22,6 +22,9 @@
     <clipPath id="mapClip">
       <path d="M115 251l63-39 70 13 55-38 69 20 55-35 83 23 75-42 76 26 60-16 65 39 88-4 74 41 84 9 45 57-49 44-77-2-55 35-78-13-58 32-74-25-76 31-61-26-70 21-54-42-81 12-52-44-75 2-43-45z"/>
     </clipPath>
+    <clipPath id="mincultClip">
+      <circle cx="800" cy="107" r="42"/>
+    </clipPath>
     <style>
       .sans { font-family: "Arial", "DejaVu Sans", sans-serif; }
       .serif { font-family: "Georgia", "Times New Roman", serif; }
@@ -41,9 +44,11 @@
   <rect x="70" y="94" width="680" height="2" fill="#b38b52"/>
   <text x="70" y="124" class="sans muted" font-size="17">Инициатор: Луганская Республиканская Молодёжная Библиотека</text>
   <text x="70" y="150" class="sans muted" font-size="17">для учащихся 7–11 классов • Луганская Народная Республика</text>
-  <image href="лого.png" x="760" y="63" width="88" height="64" preserveAspectRatio="xMidYMid meet"/>
-  <rect x="863" y="52" width="192" height="110" rx="8" fill="#202020" stroke="#b38b52" stroke-width="2"/>
-  <image href="xtx97aptf8dknmsd4cqpuaq8g55xupwg.jpg" x="866" y="55" width="186" height="104" preserveAspectRatio="xMidYMid meet"/>
+  <circle cx="800" cy="107" r="46" fill="#fffdf7" stroke="#b38b52" stroke-width="2"/>
+  <image href="41d94fc3-1aee-48f4-ab22-a7a0061e0831.jpg" x="758" y="65" width="84" height="84" preserveAspectRatio="xMidYMid slice" clip-path="url(#mincultClip)"/>
+  <image href="лого.png" x="854" y="66" width="76" height="82" preserveAspectRatio="xMidYMid meet"/>
+  <rect x="942" y="63" width="113" height="88" rx="8" fill="#202020" stroke="#b38b52" stroke-width="2"/>
+  <image href="xtx97aptf8dknmsd4cqpuaq8g55xupwg.jpg" x="945" y="66" width="107" height="82" preserveAspectRatio="xMidYMid meet"/>
 
   <!-- Decorative map silhouette -->
   <g opacity="0.98" transform="translate(0 25)">
@@ -134,8 +139,6 @@
   </g>
 
   <!-- Footer -->
-  <image href="лого.png" x="70" y="1451" width="83" height="60" preserveAspectRatio="xMidYMid meet"/>
-  <text x="169" y="1484" class="sans ink" font-size="16" font-weight="700">ЛУГАНСКАЯ РЕСПУБЛИКАНСКАЯ МОЛОДЁЖНАЯ БИБЛИОТЕКА</text>
   <text x="1053" y="1494" text-anchor="end" class="sans muted" font-size="17">12+</text>
   <text x="70" y="1527" class="sans muted" font-size="14">Содержание проекта учитывает положения Указа Президента РФ от 09.11.2022 № 809.</text>
 </svg>

@@ -35,6 +35,69 @@
 
     a { color: inherit; }
 
+    .quill-cursor {
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      display: none;
+      width: 72px;
+      height: 72px;
+      pointer-events: none;
+      opacity: 0;
+      will-change: transform;
+      transition: opacity 120ms ease;
+    }
+
+    .quill-cursor.is-visible { opacity: 1; }
+    .quill-cursor::after {
+      position: absolute;
+      bottom: 7px;
+      left: 7px;
+      width: 7px;
+      height: 7px;
+      content: "";
+      border-radius: 50%;
+      background: #24394a;
+      opacity: 0;
+      transform: scale(0.2);
+      transition: opacity 100ms ease, transform 100ms ease;
+    }
+    .quill-cursor.is-pressing::after { opacity: 0.55; transform: scale(1); }
+    .quill-cursor__pen {
+      width: 100%;
+      height: 100%;
+      transform-origin: 10px 62px;
+      animation: quill-float 1.8s ease-in-out infinite;
+      filter: drop-shadow(2px 4px 3px rgb(20 41 58 / 28%));
+      transition: filter 140ms ease;
+    }
+    .quill-cursor.is-interactive .quill-cursor__pen {
+      animation: quill-point 700ms ease-in-out infinite alternate;
+      filter: drop-shadow(2px 5px 4px rgb(163 38 53 / 35%));
+    }
+    .quill-cursor.is-pressing .quill-cursor__pen { animation: none; transform: rotate(-11deg) scale(0.94); }
+
+    @keyframes quill-float {
+      0%, 100% { transform: rotate(-5deg) translateY(0); }
+      50% { transform: rotate(-2deg) translateY(-3px); }
+    }
+    @keyframes quill-point {
+      from { transform: rotate(-5deg) translateY(0); }
+      to { transform: rotate(2deg) translateY(-2px) scale(1.04); }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      html.quill-enabled,
+      html.quill-enabled * { cursor: none !important; }
+      html.quill-enabled .quill-cursor { display: block; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .quill-cursor__pen,
+      .quill-cursor.is-interactive .quill-cursor__pen { animation: none; }
+    }
+
     .page {
       width: min(1180px, calc(100% - 32px));
       margin: 32px auto;
@@ -75,7 +138,7 @@
       border-bottom: 1px solid rgb(255 255 255 / 25%);
     }
 
-    .brand img {
+    .brand > img {
       width: 104px;
       height: auto;
       padding: 8px;
@@ -83,7 +146,7 @@
       border-radius: 10px;
     }
 
-    .brand p { margin: 0; font-size: 0.92rem; letter-spacing: 0.08em; text-transform: uppercase; }
+    .brand p { flex: 1; margin: 0; font-size: 0.92rem; letter-spacing: 0.08em; text-transform: uppercase; }
     .brand strong { display: block; margin-top: 5px; font-size: 1.05rem; letter-spacing: 0.02em; }
     .brand a { color: inherit; text-decoration-color: rgb(255 255 255 / 45%); text-underline-offset: 4px; }
     .brand a:hover, .brand a:focus-visible { color: #efcf91; text-decoration-color: currentColor; }
@@ -96,6 +159,20 @@
     }
     .brand strong a:hover,
     .brand strong a:focus-visible { color: transparent; filter: brightness(1.2); }
+
+    .mincult-brand {
+      flex: 0 0 auto;
+      display: grid;
+      width: 104px;
+      height: 104px;
+      padding: 7px;
+      overflow: hidden;
+      place-items: center;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 10px 24px rgb(0 0 0 / 18%);
+    }
+    .mincult-brand img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
 
     .eyebrow {
       margin: 0 0 14px;
@@ -358,6 +435,51 @@
 
     .audience-note { padding: 26px; border-left: 6px solid var(--blue); background: #eef4f8; }
 
+    .project-gallery {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+      grid-template-rows: repeat(3, 190px);
+      gap: 12px;
+    }
+
+    .gallery-section {
+      padding: clamp(26px, 4vw, 44px);
+      background: var(--ink);
+    }
+    .gallery-section .section-kicker,
+    .gallery-section h2,
+    .gallery-section .project-photo figcaption { color: #e6c98d; }
+
+    .project-photo {
+      position: relative;
+      min-width: 0;
+      margin: 0;
+      overflow: hidden;
+      background: var(--ink);
+    }
+
+    .project-photo:first-child { grid-row: 1 / 4; }
+    .project-photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 400ms ease;
+    }
+    .project-photo:hover img { transform: scale(1.025); }
+    .project-photo figcaption {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: 28px 18px 14px;
+      color: #fff;
+      background: linear-gradient(transparent, rgb(20 41 58 / 88%));
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
     .useful-links {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -456,14 +578,17 @@
       .hero { min-height: auto; padding-top: 28px; }
       .hero-main { grid-template-columns: 1fr; }
       .hero-visual img { max-height: 420px; }
-      .brand { align-items: flex-start; }
-      .brand img { width: 80px; }
+      .brand { flex-wrap: wrap; align-items: flex-start; }
+      .brand > img { width: 80px; }
+      .mincult-brand { width: 80px; height: 80px; }
       .eyebrow { margin-top: 50px; }
       .intro-grid, .two-col, .program, .task-list, .principles, .poster-wrap { grid-template-columns: 1fr; }
       .metrics { grid-template-columns: 1fr 1fr; }
       .registration-form { grid-template-columns: 1fr; }
       .quarter-nav { grid-template-columns: 1fr 1fr; }
       .useful-links { grid-template-columns: 1fr; }
+      .project-gallery { grid-template-columns: 1fr; grid-template-rows: none; }
+      .project-photo, .project-photo:first-child { grid-row: auto; min-height: 220px; aspect-ratio: 16 / 9; }
       .footer { flex-direction: column; }
       .event-art { position: static; width: 78px; height: 78px; margin-bottom: 18px; }
       .event-art svg { width: 60px; height: 60px; }
@@ -496,9 +621,27 @@
   </style>
 </head>
 <body>
+  <div class="quill-cursor" aria-hidden="true">
+    <svg class="quill-cursor__pen" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="quillGold" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#f3d99c"/>
+          <stop offset="0.55" stop-color="#c2934f"/>
+          <stop offset="1" stop-color="#80532d"/>
+        </linearGradient>
+      </defs>
+      <path d="M10 62C17 45 24 29 42 14 50 7 59 5 65 6c-1 9-5 20-14 29-10 10-22 14-35 17" fill="url(#quillGold)" stroke="#26394a" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="M11 61C24 43 37 27 61 9M21 48l-3-14m10 7-2-17m10 10-1-16m9 9 1-14m6 6 4-10" fill="none" stroke="#26394a" stroke-width="1.7" stroke-linecap="round"/>
+      <path d="M10 62l3-11 5 2-8 9z" fill="#a32635" stroke="#26394a" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M10 62l9-18" stroke="#fff6dd" stroke-width="1.4" stroke-linecap="round"/>
+    </svg>
+  </div>
   <main class="page">
     <header class="hero">
       <div class="brand">
+        <a class="mincult-brand" href="https://mk.lpr-reg.ru/" target="_blank" rel="noopener" aria-label="Министерство культуры Луганской Народной Республики">
+          <img src="41d94fc3-1aee-48f4-ab22-a7a0061e0831.jpg" alt="Логотип Министерства культуры Луганской Народной Республики">
+        </a>
         <img src="лого.png" alt="Логотип Луганской Республиканской Молодёжной Библиотеки">
         <p>Инициатор проекта<strong><a href="https://lyl-lg.ru/" target="_blank" rel="noopener">Луганская Республиканская Молодёжная Библиотека</a></strong></p>
       </div>
@@ -559,6 +702,29 @@
         <div class="audience-note">
           <p><strong>Выбор школы доступен в каждой форме регистрации.</strong> Начните вводить официальное название или номер школы в поле поиска. Это позволяет зарегистрироваться учащимся любого образовательного учреждения Луганска без риска исключить школу из-за неполного или устаревшего перечня.</p>
           <p>Возраст участника проверяется формой: регистрация предусмотрена для подростков от 12 до 18 лет.</p>
+        </div>
+      </section>
+
+      <section class="section gallery-section" aria-labelledby="gallery-title">
+        <span class="section-kicker">Библиотека объединяет</span>
+        <h2 id="gallery-title">Молодёжь, культура, совместное действие</h2>
+        <div class="project-gallery">
+          <figure class="project-photo">
+            <img src="IMG_20260922_113425 (2).jpg" alt="Участники молодёжного культурного события в библиотеке" loading="lazy">
+            <figcaption>Пространство встречи и живого общения</figcaption>
+          </figure>
+          <figure class="project-photo">
+            <img src="c2257bfd-d436-4656-9792-d5924973047d.jpg" alt="Девушка представляет традиционное угощение на рушнике" loading="lazy">
+            <figcaption>Культурные традиции и память</figcaption>
+          </figure>
+          <figure class="project-photo">
+            <img src="IMG_20260922_113436 (1).jpg" alt="Молодые люди участвуют в совместной интерактивной программе" loading="lazy">
+            <figcaption>Командная работа и взаимодействие</figcaption>
+          </figure>
+          <figure class="project-photo">
+            <img src="IMG_20260922_113508 (1).jpg" alt="Юные участники с библиотечными сумками «Книга дарит крылья»" loading="lazy">
+            <figcaption>Книга дарит крылья</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -770,6 +936,27 @@
     </footer>
   </main>
   <script>
+    const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const quillCursor = document.querySelector(".quill-cursor");
+
+    if (finePointer.matches && quillCursor) {
+      document.documentElement.classList.add("quill-enabled");
+
+      window.addEventListener("pointermove", (event) => {
+        quillCursor.style.transform = `translate3d(${event.clientX - 10}px, ${event.clientY - 62}px, 0)`;
+        quillCursor.classList.add("is-visible");
+      }, { passive: true });
+
+      document.addEventListener("pointerover", (event) => {
+        const interactive = event.target.closest("a, button, input, select, textarea, summary, label");
+        quillCursor.classList.toggle("is-interactive", Boolean(interactive));
+      });
+      document.addEventListener("pointerdown", () => quillCursor.classList.add("is-pressing"));
+      document.addEventListener("pointerup", () => quillCursor.classList.remove("is-pressing"));
+      document.documentElement.addEventListener("mouseleave", () => quillCursor.classList.remove("is-visible"));
+      window.addEventListener("blur", () => quillCursor.classList.remove("is-visible", "is-pressing"));
+    }
+
     document.querySelectorAll(".registration-template").forEach((eventCard) => {
       const form = document.createElement("form");
       form.className = "registration-form";

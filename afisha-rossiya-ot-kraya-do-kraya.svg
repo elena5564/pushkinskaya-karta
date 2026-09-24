@@ -37,10 +37,13 @@
   <rect x="35" y="35" width="1053" height="1517" rx="4" fill="none" stroke="#b38b52" stroke-width="1"/>
 
   <!-- Header -->
-  <text x="70" y="76" class="sans ink" font-size="24" font-weight="700" letter-spacing="3">БИБЛИОТЕЧНЫЙ СОЦИОКУЛЬТУРНЫЙ ПРОЕКТ</text>
-  <rect x="70" y="94" width="983" height="2" fill="#b38b52"/>
-  <text x="70" y="124" class="sans muted" font-size="18">Инициатор: Луганская Республиканская Молодёжная Библиотека</text>
-  <text x="70" y="150" class="sans muted" font-size="18">для учащихся 7–11 классов • Луганская Народная Республика</text>
+  <text x="70" y="76" class="sans ink" font-size="22" font-weight="700" letter-spacing="2">БИБЛИОТЕЧНЫЙ СОЦИОКУЛЬТУРНЫЙ ПРОЕКТ</text>
+  <rect x="70" y="94" width="680" height="2" fill="#b38b52"/>
+  <text x="70" y="124" class="sans muted" font-size="17">Инициатор: Луганская Республиканская Молодёжная Библиотека</text>
+  <text x="70" y="150" class="sans muted" font-size="17">для учащихся 7–11 классов • Луганская Народная Республика</text>
+  <image href="лого.png" x="760" y="63" width="88" height="64" preserveAspectRatio="xMidYMid meet"/>
+  <rect x="863" y="52" width="192" height="110" rx="8" fill="#202020" stroke="#b38b52" stroke-width="2"/>
+  <image href="xtx97aptf8dknmsd4cqpuaq8g55xupwg.jpg" x="866" y="55" width="186" height="104" preserveAspectRatio="xMidYMid meet"/>
 
   <!-- Decorative map silhouette -->
   <g opacity="0.98" transform="translate(0 25)">
@@ -50,16 +53,17 @@
       <path d="M55 250h1030v75H55z" fill="#315b84" opacity="0.9"/>
       <path d="M55 325h1030v90H55z" fill="#a52a38" opacity="0.9"/>
     </g>
-    <circle cx="790" cy="361" r="11" fill="#f3c75f" stroke="#25394a" stroke-width="3"/>
-    <path d="M790 372v35" stroke="#25394a" stroke-width="3"/>
-    <text x="810" y="412" class="sans ink" font-size="18" font-weight="700">ЛУГАНСК</text>
+    <circle cx="390" cy="255" r="11" fill="#f3c75f" stroke="#25394a" stroke-width="3"/>
+    <path d="M390 266v35" stroke="#25394a" stroke-width="3"/>
+    <text x="410" y="306" class="sans white" font-size="18" font-weight="700">ЛУГАНСК</text>
   </g>
 
   <!-- Main title -->
-  <text x="561.5" y="485" text-anchor="middle" class="serif ink" font-size="54" font-weight="700" letter-spacing="2">РОССИЯ</text>
-  <text x="561.5" y="552" text-anchor="middle" class="serif" fill="#a32635" font-size="67" font-weight="700">ОТ КРАЯ ДО КРАЯ</text>
-  <path d="M275 579h573" stroke="#b38b52" stroke-width="3"/>
-  <text x="561.5" y="617" text-anchor="middle" class="sans muted" font-size="23" font-weight="600">ОТКРЫВАЙ СТРАНУ • УЗНАВАЙ СВОЙ КРАЙ • СОЗДАВАЙ БУДУЩЕЕ</text>
+  <text x="561.5" y="466" text-anchor="middle" class="serif" fill="#ffffff" stroke="#25394a" stroke-width="2" paint-order="stroke" font-size="49" font-weight="700" letter-spacing="3">РОССИЯ</text>
+  <text x="561.5" y="521" text-anchor="middle" class="serif" fill="#315b84" font-size="56" font-weight="700">ОТ КРАЯ</text>
+  <text x="561.5" y="579" text-anchor="middle" class="serif" fill="#a32635" font-size="56" font-weight="700">ДО КРАЯ</text>
+  <path d="M275 602h573" stroke="#b38b52" stroke-width="3"/>
+  <text x="561.5" y="640" text-anchor="middle" class="sans muted" font-size="23" font-weight="600">ОТКРЫВАЙ СТРАНУ • УЗНАВАЙ СВОЙ КРАЙ • СОЗДАВАЙ БУДУЩЕЕ</text>
 
   <!-- Program -->
   <g filter="url(#shadow)">
@@ -73,6 +77,7 @@
     <circle cx="113" cy="715" r="25" fill="#a32635"/>
     <text x="113" y="723" text-anchor="middle" class="white" font-size="22" font-weight="700">I</text>
     <text x="153" y="706" class="muted" font-size="17" font-weight="700" letter-spacing="2">I КВАРТАЛ</text>
+    <text x="507" y="706" text-anchor="end" fill="#a32635" font-size="17" font-weight="700">16 ФЕВРАЛЯ</text>
     <text x="108" y="759" class="ink" font-size="29" font-weight="700">МОЙ КРАЙ</text>
     <text x="108" y="795" class="ink" font-size="29" font-weight="700">В ИСТОРИИ РОССИИ</text>
     <text x="108" y="829" class="muted" font-size="18">краеведческая лаборатория</text>
@@ -80,6 +85,7 @@
     <circle cx="621" cy="715" r="25" fill="#315b84"/>
     <text x="621" y="723" text-anchor="middle" class="white" font-size="22" font-weight="700">II</text>
     <text x="661" y="706" class="muted" font-size="17" font-weight="700" letter-spacing="2">II КВАРТАЛ</text>
+    <text x="1015" y="706" text-anchor="end" fill="#315b84" font-size="17" font-weight="700">15 ИЮНЯ</text>
     <text x="616" y="769" class="ink" font-size="31" font-weight="700">ПУШКИН</text>
     <text x="616" y="807" class="ink" font-size="31" font-weight="700">ОБЪЕДИНЯЕТ</text>
     <text x="616" y="839" class="muted" font-size="18">литературный маршрут и медиаквест</text>
@@ -87,6 +93,7 @@
     <circle cx="113" cy="930" r="25" fill="#b38b52"/>
     <text x="113" y="938" text-anchor="middle" class="white" font-size="20" font-weight="700">III</text>
     <text x="153" y="921" class="muted" font-size="17" font-weight="700" letter-spacing="2">III КВАРТАЛ</text>
+    <text x="507" y="921" text-anchor="end" fill="#9a753b" font-size="17" font-weight="700">14 СЕНТЯБРЯ</text>
     <text x="108" y="984" class="ink" font-size="31" font-weight="700">РОССИЯ</text>
     <text x="108" y="1022" class="ink" font-size="31" font-weight="700">МНОГОЛИКАЯ</text>
     <text x="108" y="1054" class="muted" font-size="18">этнокультурная экспедиция</text>
@@ -94,6 +101,7 @@
     <circle cx="621" cy="930" r="25" fill="#4c705b"/>
     <text x="621" y="938" text-anchor="middle" class="white" font-size="20" font-weight="700">IV</text>
     <text x="661" y="921" class="muted" font-size="17" font-weight="700" letter-spacing="2">IV КВАРТАЛ</text>
+    <text x="1015" y="921" text-anchor="end" fill="#4c705b" font-size="17" font-weight="700">14 ДЕКАБРЯ</text>
     <text x="616" y="974" class="ink" font-size="28" font-weight="700">СОЗДАВАЯ БУДУЩЕЕ</text>
     <text x="616" y="1010" class="ink" font-size="28" font-weight="700">ВМЕСТЕ</text>
     <text x="616" y="1054" class="muted" font-size="18">мастерская подростковых инициатив</text>
@@ -107,15 +115,21 @@
   <!-- Call to action -->
   <g>
     <rect x="70" y="1240" width="682" height="206" rx="14" fill="url(#red)"/>
-    <text x="108" y="1292" class="sans white" font-size="24" font-weight="700" letter-spacing="1">БИЛЕТЫ ПО ПУШКИНСКОЙ КАРТЕ</text>
-    <text x="108" y="1340" class="sans white" font-size="22">[дата и время ближайшей встречи]</text>
-    <text x="108" y="1378" class="sans white" font-size="22">[название библиотеки, адрес]</text>
-    <text x="108" y="1419" class="sans" fill="#f2d9b1" font-size="18">Цена: [___] ₽  •  Регистрация: [ссылка / телефон]</text>
+    <text x="108" y="1282" class="sans white" font-size="22" font-weight="700" letter-spacing="1">ВЫБЕРИТЕ МЕРОПРИЯТИЕ ДЛЯ ОПЛАТЫ</text>
+    <text x="108" y="1312" class="sans" fill="#f2d9b1" font-size="17" font-weight="700">Каждое мероприятие — 100 ₽</text>
+    <rect x="108" y="1330" width="294" height="38" rx="5" fill="#fff" fill-opacity="0.14" stroke="#fff" stroke-opacity="0.35"/>
+    <text x="123" y="1355" class="sans white" font-size="15" font-weight="700">I  МОЙ КРАЙ В ИСТОРИИ РОССИИ</text>
+    <rect x="414" y="1330" width="300" height="38" rx="5" fill="#fff" fill-opacity="0.14" stroke="#fff" stroke-opacity="0.35"/>
+    <text x="429" y="1355" class="sans white" font-size="15" font-weight="700">II  ПУШКИН ОБЪЕДИНЯЕТ</text>
+    <rect x="108" y="1380" width="294" height="38" rx="5" fill="#fff" fill-opacity="0.14" stroke="#fff" stroke-opacity="0.35"/>
+    <text x="123" y="1405" class="sans white" font-size="15" font-weight="700">III  РОССИЯ МНОГОЛИКАЯ</text>
+    <rect x="414" y="1380" width="300" height="38" rx="5" fill="#fff" fill-opacity="0.14" stroke="#fff" stroke-opacity="0.35"/>
+    <text x="429" y="1405" class="sans white" font-size="15" font-weight="700">IV  СОЗДАВАЯ БУДУЩЕЕ</text>
 
     <rect x="789" y="1240" width="264" height="206" rx="14" fill="#fffdf7" stroke="#25394a" stroke-width="2"/>
-    <rect x="824" y="1265" width="134" height="134" fill="none" stroke="#25394a" stroke-width="3" stroke-dasharray="10 7"/>
-    <text x="891" y="1327" text-anchor="middle" class="sans muted" font-size="18" font-weight="700">МЕСТО</text>
-    <text x="891" y="1351" text-anchor="middle" class="sans muted" font-size="18" font-weight="700">ДЛЯ QR</text>
+    <a href="https://culture.gosuslugi.ru/" target="_blank">
+      <image href="https://api.qrserver.com/v1/create-qr-code/?size=300x300&amp;format=svg&amp;data=https%3A%2F%2Fculture.gosuslugi.ru%2F" x="853" y="1252" width="136" height="136" preserveAspectRatio="xMidYMid meet"/>
+    </a>
     <text x="921" y="1425" text-anchor="middle" class="sans ink" font-size="17" font-weight="700">КУПИТЬ БИЛЕТ</text>
   </g>
 

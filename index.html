@@ -85,9 +85,20 @@
 
     .brand p { margin: 0; font-size: 0.92rem; letter-spacing: 0.08em; text-transform: uppercase; }
     .brand strong { display: block; margin-top: 5px; font-size: 1.05rem; letter-spacing: 0.02em; }
+    .brand a { color: inherit; text-decoration-color: rgb(255 255 255 / 45%); text-underline-offset: 4px; }
+    .brand a:hover, .brand a:focus-visible { color: #efcf91; text-decoration-color: currentColor; }
+    .brand strong a {
+      color: transparent;
+      background: linear-gradient(90deg, #08e8ed, #43a8ef 52%, #8b4ee8);
+      background-clip: text;
+      -webkit-background-clip: text;
+      text-decoration: none;
+    }
+    .brand strong a:hover,
+    .brand strong a:focus-visible { color: transparent; filter: brightness(1.2); }
 
     .eyebrow {
-      margin: 72px 0 14px;
+      margin: 0 0 14px;
       color: #e6c98d;
       font-size: 0.9rem;
       font-weight: 700;
@@ -105,13 +116,32 @@
       letter-spacing: -0.045em;
     }
 
-    h1 span { color: #efcf91; }
+    h1 span { display: block; }
+    h1 .flag-white { color: #fff; }
+    h1 .flag-blue { color: #4c8fd2; }
+    h1 .flag-red { color: #ef5260; }
+
+    .hero-main {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(300px, 0.72fr);
+      gap: clamp(28px, 5vw, 68px);
+      align-items: center;
+      margin-top: 54px;
+    }
+
+    .hero-visual img {
+      display: block;
+      width: 100%;
+      max-height: 530px;
+      filter: drop-shadow(0 24px 35px rgb(0 0 0 / 25%));
+    }
 
     .lead {
       max-width: 780px;
       margin: 0;
-      color: rgb(255 255 255 / 84%);
+      color: #e6c98d;
       font-size: clamp(1.05rem, 2vw, 1.35rem);
+      font-weight: 600;
     }
 
     .hero-meta {
@@ -121,13 +151,26 @@
       margin-top: 38px;
     }
 
-    .hero-meta span {
+    .hero-meta span,
+    .hero-meta a {
       padding: 10px 15px;
-      border: 1px solid rgb(255 255 255 / 22%);
+      border: 1px solid rgb(255 255 255 / 32%);
       border-radius: 999px;
-      background: rgb(255 255 255 / 8%);
+      color: inherit;
       font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 160ms ease, filter 160ms ease;
     }
+
+    .hero-meta a:nth-child(1) { background: var(--blue); }
+    .hero-meta a:nth-child(2) { color: var(--ink); background: #efcf91; }
+    .hero-meta a:nth-child(3) { background: var(--red); }
+    .hero-meta a:nth-child(4) { background: var(--green); }
+    .hero-meta a:nth-child(5) { background: #704b8f; }
+    .hero-meta a:nth-child(6) { color: var(--ink); background: #f3c75f; }
+    .hero-meta a:hover,
+    .hero-meta a:focus-visible { transform: translateY(-2px); filter: brightness(1.18); }
 
     .content { padding: 64px clamp(24px, 6vw, 80px) 80px; }
 
@@ -245,6 +288,117 @@
     .event p { margin: 8px 0; }
     .event strong { color: var(--event-color); }
 
+    details.event { padding: 0; }
+    details.event > summary { padding: 31px; cursor: pointer; list-style: none; }
+    details.event > summary::-webkit-details-marker { display: none; }
+    details.event > summary::after {
+      display: block;
+      margin-top: 18px;
+      color: var(--red);
+      content: "Открыть мероприятия и регистрацию ↓";
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    details.event[open] > summary::after { content: "Свернуть раздел ↑"; }
+    .event-art {
+      position: absolute;
+      z-index: 1;
+      top: 22px;
+      right: 22px;
+      display: grid;
+      width: 92px;
+      height: 92px;
+      color: var(--event-color);
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: #fbf7ef;
+    }
+    .event-art svg { width: 70px; height: 70px; }
+    details.event > summary .event-label,
+    details.event > summary h3 { padding-right: 94px; }
+    .event-registration { position: relative; z-index: 1; padding: 4px 22px 26px; border-top: 1px solid var(--line); background: #fbf7ef; }
+    .event-option { margin-top: 18px; padding: 18px; border-left: 4px solid var(--red); background: #fff; }
+    .event-option h4 { margin: 0 0 8px; font-family: Georgia, serif; font-size: 1.12rem; }
+    .event-option p { color: var(--muted); font-size: 0.9rem; }
+    .registration-form { display: grid; grid-template-columns: 1.4fr 0.55fr 1.35fr; gap: 9px; margin-top: 14px; }
+    .registration-form label { color: var(--muted); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; }
+    .registration-form input { width: 100%; margin-top: 4px; padding: 9px; border: 1px solid var(--line); background: #fff; font: inherit; }
+    .registration-actions { display: flex; flex-wrap: wrap; gap: 8px; grid-column: 1 / -1; }
+    .register-button, .ticket-link { padding: 10px 13px; border: 0; border-radius: 3px; color: #fff; font: inherit; font-size: 0.82rem; font-weight: 700; text-decoration: none; cursor: pointer; }
+    .register-button { background: var(--red); }
+    .ticket-link { background: var(--blue); }
+    .form-status { align-self: center; color: var(--green); font-size: 0.8rem; font-weight: 700; }
+    .registration-note { color: var(--muted); font-size: 0.78rem; }
+
+    .quarter-nav {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .quarter-nav a {
+      padding: 13px 10px;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      font-size: 0.84rem;
+      font-weight: 800;
+      transition: transform 160ms ease, filter 160ms ease;
+    }
+
+    .quarter-nav a:nth-child(1) { background: var(--red); }
+    .quarter-nav a:nth-child(2) { background: var(--blue); }
+    .quarter-nav a:nth-child(3) { color: var(--ink); background: #d5ae67; }
+    .quarter-nav a:nth-child(4) { background: var(--green); }
+    .quarter-nav a:hover,
+    .quarter-nav a:focus-visible { transform: translateY(-2px); filter: brightness(1.12); }
+
+    .audience-note { padding: 26px; border-left: 6px solid var(--blue); background: #eef4f8; }
+
+    .useful-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .useful-link {
+      position: relative;
+      padding: 28px;
+      border: 1px solid var(--line);
+      background: #fff;
+      text-decoration: none;
+      transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    .useful-link::after {
+      position: absolute;
+      top: 22px;
+      right: 24px;
+      color: var(--red);
+      content: "↗";
+      font-size: 1.7rem;
+      font-weight: 700;
+    }
+
+    .useful-link:nth-child(1) { border-top: 5px solid var(--red); }
+    .useful-link:nth-child(2) { border-top: 5px solid var(--blue); }
+    .useful-link:nth-child(3) { border-top: 5px solid var(--gold); }
+    .useful-link:nth-child(4) { border-top: 5px solid var(--green); }
+    .useful-link:hover, .useful-link:focus-visible { transform: translateY(-3px); border-color: var(--gold); box-shadow: 0 12px 28px rgb(38 57 74 / 13%); }
+    .useful-link h3 { padding-right: 36px; margin-bottom: 10px; }
+    .useful-link p { margin: 0; color: var(--muted); }
+    .useful-link .domain { display: block; margin-top: 16px; color: var(--red); font-size: 0.8rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+    .portal-logo {
+      display: flex;
+      height: 86px;
+      margin: -6px 42px 22px 0;
+      align-items: center;
+    }
+    .portal-logo img { display: block; width: auto; max-width: 230px; height: auto; max-height: 78px; object-fit: contain; }
+
     table { width: 100%; border-collapse: collapse; background: #fff; }
     th, td { padding: 15px 18px; border: 1px solid var(--line); text-align: left; vertical-align: top; }
     th { color: #fff; background: var(--ink); }
@@ -300,12 +454,20 @@
     @media (max-width: 760px) {
       .page { width: 100%; margin: 0; border: 0; }
       .hero { min-height: auto; padding-top: 28px; }
+      .hero-main { grid-template-columns: 1fr; }
+      .hero-visual img { max-height: 420px; }
       .brand { align-items: flex-start; }
       .brand img { width: 80px; }
       .eyebrow { margin-top: 50px; }
       .intro-grid, .two-col, .program, .task-list, .principles, .poster-wrap { grid-template-columns: 1fr; }
       .metrics { grid-template-columns: 1fr 1fr; }
+      .registration-form { grid-template-columns: 1fr; }
+      .quarter-nav { grid-template-columns: 1fr 1fr; }
+      .useful-links { grid-template-columns: 1fr; }
       .footer { flex-direction: column; }
+      .event-art { position: static; width: 78px; height: 78px; margin-bottom: 18px; }
+      .event-art svg { width: 60px; height: 60px; }
+      details.event > summary .event-label, details.event > summary h3 { padding-right: 0; }
     }
 
     @media (max-width: 480px) {
@@ -321,7 +483,8 @@
       .page { width: auto; margin: 0; border: 0; box-shadow: none; }
       .hero { min-height: 0; padding: 18mm 14mm; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
       .hero::before, .hero::after { display: none; }
-      .eyebrow { margin-top: 24mm; }
+      .hero-main { display: block; margin-top: 24mm; }
+      .hero-visual { display: none; }
       h1 { font-size: 44pt; }
       .content { padding: 12mm 0; }
       .section { margin-top: 14mm; break-inside: avoid; }
@@ -337,16 +500,25 @@
     <header class="hero">
       <div class="brand">
         <img src="лого.png" alt="Логотип Луганской Республиканской Молодёжной Библиотеки">
-        <p>Инициатор проекта<strong>Луганская Республиканская Молодёжная Библиотека</strong></p>
+        <p>Инициатор проекта<strong><a href="https://lyl-lg.ru/" target="_blank" rel="noopener">Луганская Республиканская Молодёжная Библиотека</a></strong></p>
       </div>
-      <p class="eyebrow">Библиотечный социокультурный проект</p>
-      <h1>Россия <span>от края до края</span></h1>
-      <p class="lead">Открывай страну. Узнавай свой край. Создавай будущее вместе.</p>
-      <div class="hero-meta">
-        <span>Луганская Народная Республика</span>
-        <span>Учащиеся 7–11 классов</span>
-        <span>1 событие в квартал</span>
-        <span>Пушкинская карта</span>
+      <div class="hero-main">
+        <div>
+          <p class="eyebrow">Библиотечный социокультурный проект</p>
+          <h1><span class="flag-white">Россия</span><span class="flag-blue">от края</span><span class="flag-red">до края</span></h1>
+          <p class="lead">Открывай страну. Узнавай свой край. Создавай будущее вместе.</p>
+          <nav class="hero-meta" aria-label="Основные разделы проекта">
+            <a href="https://mk.lpr-reg.ru/" target="_blank" rel="noopener">Луганская Народная Республика</a>
+            <a href="#schools">Учащиеся 7–11 классов</a>
+            <a href="#program">1 событие в квартал</a>
+            <a href="https://www.gosuslugi.ru/culture" target="_blank" rel="noopener">Пушкинская карта</a>
+            <a href="https://www.kremlin.ru/acts/bank/48502" target="_blank" rel="noopener">Указ Президента РФ № 809</a>
+            <a href="#useful-links">Полезные ссылки</a>
+          </nav>
+        </div>
+        <div class="hero-visual">
+          <img src="hero-youth-values.svg" alt="Подростки исследуют культурную карту России через книгу, память, единство и созидание">
+        </div>
       </div>
     </header>
 
@@ -355,7 +527,8 @@
         <div class="statement">
           <span class="section-kicker" style="color:#efcf91">Цель проекта</span>
           <h2 id="goal-title">Культура как пространство общей памяти и действия</h2>
-          <p>Создать средствами библиотеки пространство для позитивных социокультурных изменений, в котором подростки через литературу, историю, краеведение и творчество осознают общность культурного наследия России и личную ответственность за его сохранение.</p>
+          <p>После участия в проекте школьникам 7–11 классов станет легче понимать свою страну и место Луганщины в её истории. Они узнают больше о регионах и народах России, научатся находить достоверную информацию, уверенно обсуждать книги и культурные события, работать в команде и создавать собственные полезные проекты.</p>
+          <p>У детей появятся новые культурные впечатления, идеи для путешествий по России, уважение к семейной и исторической памяти, опыт общения со сверстниками из других регионов и понимание того, как лично участвовать в развитии своей школы, библиотеки и республики.</p>
         </div>
         <div class="legal">
           <span class="section-kicker">Актуальность</span>
@@ -380,42 +553,115 @@
         </ul>
       </section>
 
-      <section class="section" aria-labelledby="program-title">
+      <section class="section" id="schools" aria-labelledby="schools-title">
+        <span class="section-kicker">Участники проекта</span>
+        <h2 id="schools-title">Учащиеся 7–11 классов Луганска</h2>
+        <div class="audience-note">
+          <p><strong>Выбор школы доступен в каждой форме регистрации.</strong> Начните вводить официальное название или номер школы в поле поиска. Это позволяет зарегистрироваться учащимся любого образовательного учреждения Луганска без риска исключить школу из-за неполного или устаревшего перечня.</p>
+          <p>Возраст участника проверяется формой: регистрация предусмотрена для подростков от 12 до 18 лет.</p>
+        </div>
+      </section>
+
+      <section class="section" id="program" aria-labelledby="program-title">
         <span class="section-kicker">Четыре встречи в год</span>
         <h2 id="program-title">Квартальная программа</h2>
+        <nav class="quarter-nav" aria-label="Переход к мероприятиям по кварталам">
+          <a href="#quarter-1">I квартал<br>16 февраля</a>
+          <a href="#quarter-2">II квартал<br>15 июня</a>
+          <a href="#quarter-3">III квартал<br>14 сентября</a>
+          <a href="#quarter-4">IV квартал<br>14 декабря</a>
+        </nav>
         <div class="program">
-          <article class="event">
-            <span class="quarter">I</span>
-            <div class="event-label">I квартал · краеведческая лаборатория</div>
-            <h3>Мой край в истории России</h3>
-            <p>Культурная карта ЛНР, литература и памятные места Луганщины, судьбы земляков и семейные реликвии.</p>
-            <p><strong>Результат:</strong> интерактивная карта «Луганщина: люди, книги, места».</p>
-            <p><strong>Ценности:</strong> историческая память, преемственность поколений, патриотизм.</p>
-          </article>
-          <article class="event">
-            <span class="quarter">II</span>
-            <div class="event-label">II квартал · литературный маршрут</div>
-            <h3>Пушкин объединяет</h3>
-            <p>География жизни и творчества А. С. Пушкина, язык как культурный код, пушкинские места России.</p>
-            <p><strong>Результат:</strong> аудиооткрытки или видеозарисовки «Мой Пушкин».</p>
-            <p><strong>Ценности:</strong> высокая культура, созидание, достоинство, общая культурная идентичность.</p>
-          </article>
-          <article class="event">
-            <span class="quarter">III</span>
-            <div class="event-label">III квартал · этнокультурная экспедиция</div>
-            <h3>Россия многоликая</h3>
-            <p>Сказания, музыка, орнаменты, традиции гостеприимства и литературные голоса народов России.</p>
-            <p><strong>Результат:</strong> книжный атлас «Традиции, которые нас объединяют».</p>
-            <p><strong>Ценности:</strong> единство народов России, взаимоуважение, взаимопомощь.</p>
-          </article>
-          <article class="event">
-            <span class="quarter">IV</span>
-            <div class="event-label">IV квартал · проектная мастерская</div>
-            <h3>Создавая будущее вместе</h3>
-            <p>Образ будущего в отечественной литературе, созидательный труд, культурное волонтерство.</p>
-            <p><strong>Результат:</strong> подростковые мини-проекты и итоговая выставка.</p>
-            <p><strong>Ценности:</strong> ответственность, созидательный труд, гуманизм, милосердие.</p>
-          </article>
+          <details class="event" id="quarter-1">
+            <summary>
+              <span class="event-art" aria-hidden="true">
+                <svg viewBox="0 0 80 80" fill="none">
+                  <path d="M13 20l18-8 17 7 19-8v47l-19 8-17-7-18 8V20z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+                  <path d="M31 12v47M48 19v47" stroke="currentColor" stroke-width="2"/>
+                  <path d="M47 28c0-7 11-7 11 0 0 6-5.5 11-5.5 11S47 34 47 28z" fill="currentColor"/>
+                  <circle cx="52.5" cy="28" r="2" fill="#fff"/>
+                </svg>
+              </span>
+              <span class="quarter">I</span>
+              <div class="event-label">I квартал · 16 февраля · краеведческая лаборатория</div>
+              <h3>Мой край в истории России</h3>
+              <p>Культурная карта ЛНР, литература и памятные места Луганщины, судьбы земляков и семейные реликвии.</p>
+              <p><strong>Результат:</strong> интерактивная карта «Луганщина: люди, книги, места».</p>
+              <p><strong>Ценности:</strong> историческая память, преемственность поколений, патриотизм.</p>
+            </summary>
+            <div class="event-registration">
+              <article class="event-option registration-template" data-event="I квартал — Мой край в истории России">
+                <h4>Регистрация на мероприятие I квартала</h4>
+              </article>
+            </div>
+          </details>
+          <details class="event" id="quarter-2">
+            <summary>
+              <span class="event-art" aria-hidden="true">
+                <svg viewBox="0 0 80 80" fill="none">
+                  <path d="M14 56c13-5 22-4 27 2V25c-7-6-17-7-27-2v33zM66 56c-13-5-22-4-25 2V25c7-6 17-7 25-2v33z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+                  <path d="M55 8c10 8 7 22-8 31l-8 5 5-9C49 23 46 13 55 8z" fill="currentColor"/>
+                  <path d="M47 35L34 51" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <span class="quarter">II</span>
+              <div class="event-label">II квартал · 15 июня · литературный маршрут</div>
+              <h3>Пушкин объединяет</h3>
+              <p>География жизни и творчества А. С. Пушкина, язык как культурный код, пушкинские места России.</p>
+              <p><strong>Результат:</strong> аудиооткрытки или видеозарисовки «Мой Пушкин».</p>
+              <p><strong>Ценности:</strong> высокая культура, созидание, достоинство, общая культурная идентичность.</p>
+            </summary>
+            <div class="event-registration">
+              <article class="event-option registration-template" data-event="II квартал — Пушкин объединяет">
+                <h4>Регистрация на мероприятие II квартала</h4>
+              </article>
+            </div>
+          </details>
+          <details class="event" id="quarter-3">
+            <summary>
+              <span class="event-art" aria-hidden="true">
+                <svg viewBox="0 0 80 80" fill="none">
+                  <circle cx="40" cy="40" r="28" stroke="currentColor" stroke-width="3"/>
+                  <path d="M40 13l7 12 14-2-7 12 10 10-14 2-2 14-10-10-12 7 2-14-12-7 12-7-2-14 14 5z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+                  <circle cx="40" cy="40" r="8" fill="currentColor"/>
+                  <circle cx="40" cy="40" r="3" fill="#fff"/>
+                </svg>
+              </span>
+              <span class="quarter">III</span>
+              <div class="event-label">III квартал · 14 сентября · этнокультурная экспедиция</div>
+              <h3>Россия многоликая</h3>
+              <p>Сказания, музыка, орнаменты, традиции гостеприимства и литературные голоса народов России.</p>
+              <p><strong>Результат:</strong> книжный атлас «Традиции, которые нас объединяют».</p>
+              <p><strong>Ценности:</strong> единство народов России, взаимоуважение, взаимопомощь.</p>
+            </summary>
+            <div class="event-registration">
+              <article class="event-option registration-template" data-event="III квартал — Россия многоликая">
+                <h4>Регистрация на мероприятие III квартала</h4>
+              </article>
+            </div>
+          </details>
+          <details class="event" id="quarter-4">
+            <summary>
+              <span class="event-art" aria-hidden="true">
+                <svg viewBox="0 0 80 80" fill="none">
+                  <path d="M25 31c0-20 30-20 30 0 0 8-5 11-8 16H33c-3-5-8-8-8-16z" stroke="currentColor" stroke-width="3"/>
+                  <path d="M33 48h14M35 54h10M40 17v-7M19 19l-5-5M61 19l5-5M18 35h-7M62 35h7" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M21 68h38M27 68V55l13 6 13-6v13" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span class="quarter">IV</span>
+              <div class="event-label">IV квартал · 14 декабря · проектная мастерская</div>
+              <h3>Создавая будущее вместе</h3>
+              <p>Образ будущего в отечественной литературе, созидательный труд, культурное волонтерство.</p>
+              <p><strong>Результат:</strong> подростковые мини-проекты и итоговая выставка.</p>
+              <p><strong>Ценности:</strong> ответственность, созидательный труд, гуманизм, милосердие.</p>
+            </summary>
+            <div class="event-registration">
+              <article class="event-option registration-template" data-event="IV квартал — Создавая будущее вместе">
+                <h4>Регистрация на мероприятие IV квартала</h4>
+              </article>
+            </div>
+          </details>
         </div>
       </section>
 
@@ -473,6 +719,37 @@
         </div>
       </section>
 
+      <section class="section" id="useful-links" aria-labelledby="useful-links-title">
+        <span class="section-kicker">Читайте, исследуйте, выбирайте</span>
+        <h2 id="useful-links-title">Полезные ссылки</h2>
+        <div class="useful-links">
+          <a class="useful-link" href="https://nebdeti.ru/" target="_blank" rel="noopener">
+            <span class="portal-logo"><img src="https://nebdeti.ru/images/222/logo.svg" alt="Логотип НЭБ.Дети" loading="lazy"></span>
+            <h3>Национальная электронная детская библиотека</h3>
+            <p>Электронная коллекция детских книг, журналов, диафильмов и других материалов для чтения, учебы и знакомства с историей детской литературы.</p>
+            <span class="domain">nebdeti.ru</span>
+          </a>
+          <a class="useful-link" href="https://bibliogid.ru/" target="_blank" rel="noopener">
+            <span class="portal-logo"><img src="https://bibliogid.ru/images/222/shapk4.png" alt="Логотип Библиогида" loading="lazy"></span>
+            <h3>Библиогид</h3>
+            <p>Навигатор по современной и классической литературе для детей и подростков: обзоры книг, рекомендации, авторы и тематические подборки.</p>
+            <span class="domain">bibliogid.ru</span>
+          </a>
+          <a class="useful-link" href="https://prodetlit.ru/index.php/Добро_пожаловать_на_ПроДетЛит" target="_blank" rel="noopener">
+            <span class="portal-logo"><img src="https://prodetlit.ru/resources/assets/logo222.png" alt="Логотип ПроДетЛит" loading="lazy"></span>
+            <h3>ПроДетЛит</h3>
+            <p>Энциклопедический портал о детской литературе, писателях, художниках-иллюстраторах, издательствах и значимых произведениях.</p>
+            <span class="domain">prodetlit.ru</span>
+          </a>
+          <a class="useful-link" href="https://web-landia.ru/" target="_blank" rel="noopener">
+            <span class="portal-logo"><img src="https://web-landia.ru/images/new_design/LOGO_WL.png" alt="Логотип ВебЛандии" loading="lazy"></span>
+            <h3>ВебЛандия</h3>
+            <p>Каталог проверенных и безопасных интернет-ресурсов для детей и подростков по учебе, культуре, науке, творчеству и досугу.</p>
+            <span class="domain">web-landia.ru</span>
+          </a>
+        </div>
+      </section>
+
       <section class="section poster-section" aria-labelledby="poster-title">
         <div class="poster-wrap">
           <img src="afisha-rossiya-ot-kraya-do-kraya.svg" alt="Афиша проекта «Россия от края до края»">
@@ -489,8 +766,43 @@
 
     <footer class="footer">
       <div><strong>«Россия от края до края»</strong><br>Библиотечный социокультурный проект</div>
-      <div>Инициатор: Луганская Республиканская Молодёжная Библиотека<br>Луганская Народная Республика</div>
+      <div>Инициатор: <a href="https://lyl-lg.ru/" target="_blank" rel="noopener">Луганская Республиканская Молодёжная Библиотека</a><br>Луганская Народная Республика</div>
     </footer>
   </main>
+  <script>
+    document.querySelectorAll(".registration-template").forEach((eventCard) => {
+      const form = document.createElement("form");
+      form.className = "registration-form";
+      form.dataset.event = eventCard.dataset.event;
+      form.innerHTML = `
+        <label>ФИО<input name="fullName" type="text" autocomplete="name" required></label>
+        <label>Возраст<input name="age" type="number" min="12" max="18" required></label>
+        <label>Название школы<input name="school" type="search" placeholder="Начните вводить название или номер" autocomplete="organization" required></label>
+        <div class="registration-actions">
+          <button class="register-button" type="submit">Предварительная регистрация</button>
+          <a class="ticket-link" href="https://culture.gosuslugi.ru/" target="_blank" rel="noopener">Билет по Пушкинской карте</a>
+          <span class="form-status" aria-live="polite"></span>
+        </div>`;
+      eventCard.append(form);
+    });
+
+    document.querySelectorAll(".registration-form").forEach((form) => {
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (!form.reportValidity()) return;
+        form.querySelector(".form-status").textContent = "Форма заполнена. Теперь оформите билет по ссылке.";
+      });
+    });
+
+    function openQuarterFromHash() {
+      const quarterNumber = new URLSearchParams(location.search).get("quarter");
+      const selector = location.hash || (quarterNumber ? `#quarter-${quarterNumber}` : "");
+      const quarter = selector ? document.querySelector(selector) : null;
+      if (quarter?.matches("details.event")) quarter.open = true;
+    }
+
+    window.addEventListener("hashchange", openQuarterFromHash);
+    openQuarterFromHash();
+  </script>
 </body>
 </html>
